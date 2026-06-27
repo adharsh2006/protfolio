@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adharsh V S — Portfolio</title>
+  <meta name="description" content="Adharsh V S — AI Engineer and Full Stack Developer. Research Intern at NIT Trichy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="desktop">
+    <div id="taskbar">
+      <div id="taskbar-left">
+        <button class="start-btn" id="start-btn">
+          <span class="start-icon">⚡</span>
+          <span class="start-label">Adharsh</span>
+        </button>
+        <div id="taskbar-apps"></div>
+      </div>
+      <div id="taskbar-right">
+        <div id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></div>
+        <div id="clock"></div>
+      </div>
+    </div>
+    <div id="desktop-icons">
+      <div class="desktop-icon" ondblclick="openApp('about')"><div class="icon-img">👤</div><span>About Me</span></div>
+      <div class="desktop-icon" ondblclick="openApp('projects')"><div class="icon-img">🚀</div><span>Projects</span></div>
+      <div class="desktop-icon" ondblclick="openApp('skills')"><div class="icon-img">⚙️</div><span>Skills</span></div>
+      <div class="desktop-icon" ondblclick="openApp('resume')"><div class="icon-img">📄</div><span>Resume</span></div>
+      <div class="desktop-icon" ondblclick="openApp('terminal')"><div class="icon-img">💻</div><span>Terminal</span></div>
+      <div class="desktop-icon" ondblclick="openApp('contact')"><div class="icon-img">📬</div><span>Contact</span></div>
+      <div class="desktop-icon" ondblclick="openApp('github')"><div class="icon-img">🐙</div><span>GitHub</span></div>
+    </div>
+    <div id="windows-container"></div>
+  </div>
+  <template id="tpl-about">
+    <div class="window-content about-content">
+      <div class="about-header">
+        <div class="avatar-ring"><div class="avatar">AVS</div><div class="online-dot"></div></div>
+        <div class="about-title">
+          <h1>Adharsh V S</h1>
+          <p class="about-role">AI Engineer &amp; Full Stack Developer</p>
+          <p class="about-tag">Research Intern @ NIT Trichy</p>
+          <div class="about-badges">
+            <span class="badge">🌍 India</span>
+            <span class="badge">🎓 CGPA 9.3</span>
+            <span class="badge">🤝 Open to Opportunities</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-bio">
+        <p>👋 I am an <strong>AI Engineer</strong> and <strong>Full Stack Developer</strong> building intelligent systems where cutting-edge AI meets robust software engineering.</p>
+        <p>Currently at <strong>SRM Institute of Science and Technology</strong> (CGPA 9.3/10), with research experience at <strong>NIT Trichy</strong>.</p>
+        <p>I build production-grade tech — intrusion detection, RL traffic control, AI-native CRMs and accessibility tools.</p>
+      </div>
+      <div class="about-links">
+        <a href="https://linkedin.com/in/adharsh-v-s-8a691725b" target="_blank" class="link-btn linkedin">💼 LinkedIn</a>
+        <a href="https://github.com/adharsh2006" target="_blank" class="link-btn github-btn">🐙 GitHub</a>
+        <a href="mailto:vsadharsh0@gmail.com" class="link-btn email">📧 Email</a>
+      </div>
+    </div>
+  </template>
+  <template id="tpl-projects">
+    <div class="window-content projects-content">
+      <h2 class="section-title">🚀 Featured Projects</h2>
+      <div class="projects-list">
+        <div class="project-card" onclick="openLink('https://github.com/adharsh2006/PS-GRNN-Digital-Immune-System')">
+          <div class="project-icon">🛡️</div>
+          <div class="project-info">
+            <h3>PS-GRNN Digital Immune System</h3>
+            <p>AI-based Intrusion Detection System using deep learning and grammar inference to verify network protocols.</p>
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Scapy</span><span class="tag">Streamlit</span></div>
+          </div>
+          <div class="project-arrow">→</div>
+        </div>
+        <div class="project-card" onclick="openLink('https://github.com/adharsh2006/Dyslexia-Reader-AI')">
+          <div class="project-icon">♿</div>
+          <div class="project-info">
+            <h3>Dyslexia Reader AI</h3>
+            <p>Chrome extension aiding dyslexic users with AI simplification, TTS, and visual reading rulers.</p>
+            <div class="project-tags"><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">Chrome APIs</span></div>
+          </div>
+          <div class="project-arrow">→</div>
+        </div>
+        <div class="project-card" onclick="openLink('https://github.com/adharsh2006/RL-Traffic-Management-System')">
+          <div class="project-icon">🚦</div>
+          <div class="project-info">
+            <h3>RL Traffic Management System</h3>
+            <p>Reinforcement Learning based traffic control using SUMO simulator for urban optimization.</p>
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">SUMO</span><span class="tag">RL</span></div>
+          </div>
+          <div class="project-arrow">→</div>
+        </div>
+        <div class="project-card" onclick="openLink('https://github.com/adharsh2006/Water_demand_forecaster')">
+          <div class="project-icon">💧</div>
+          <div class="project-info">
+            <h3>Water Demand Forecaster</h3>
+            <p>Urban analytics with Ridge, Random Forest, and Gradient Boosting to predict water consumption.</p>
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Chart.js</span></div>
+          </div>
+          <div class="project-arrow">→</div>
+        </div>
+        <div class="project-card" onclick="openLink('https://github.com/adharsh2006/xeno')">
+          <div class="project-icon">🤖</div>
+          <div class="project-info">
+            <h3>Xeno CRM</h3>
+            <p>AI-native Mini CRM with multi-channel campaign orchestration and vector search.</p>
+            <div class="project-tags"><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span></div>
+          </div>
+          <div class="project-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template id="tpl-skills">
+    <div class="window-content skills-content">
+      <h2 class="section-title">⚙️ Skills &amp; Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-category"><h3>💻 Languages</h3>
+          <div class="skill-list">
+            <div class="skill-item">🐍 Python</div><div class="skill-item">🌐 JavaScript</div>
+            <div class="skill-item">📘 TypeScript</div><div class="skill-item">🌍 HTML/CSS</div><div class="skill-item">⚡ C++</div>
+          </div>
+        </div>
+        <div class="skill-category"><h3>⚙️ Frameworks</h3>
+          <div class="skill-list">
+            <div class="skill-item">⚛️ React/Next.js</div><div class="skill-item">🎨 Tailwind CSS</div>
+            <div class="skill-item">🟢 Node.js/Express</div><div class="skill-item">🦄 FastAPI</div><div class="skill-item">🌊 Streamlit</div>
+          </div>
+        </div>
+        <div class="skill-category"><h3>🤖 AI / ML</h3>
+          <div class="skill-list">
+            <div class="skill-item">🔥 PyTorch</div><div class="skill-item">🧠 TensorFlow</div>
+            <div class="skill-item">📊 Scikit-Learn</div><div class="skill-item">🎯 Reinforcement Learning</div><div class="skill-item">🔍 pgvector/FAISS</div>
+          </div>
+        </div>
+        <div class="skill-category"><h3>🗄️ Databases &amp; Tools</h3>
+          <div class="skill-list">
+            <div class="skill-item">🐘 PostgreSQL</div><div class="skill-item">🍃 MongoDB</div>
+            <div class="skill-item">🐳 Docker</div><div class="skill-item">🔴 Redis</div><div class="skill-item">🔧 Git/GitHub</div>
+          </div>
+        </div>
+      </div>
+      <div class="proficiency-bars">
+        <h3>📈 Proficiency</h3>
+        <div class="bar-item"><label>Python</label><div class="bar"><div class="bar-fill" style="--w:92%"></div></div><small>92%</small></div>
+        <div class="bar-item"><label>JavaScript / TS</label><div class="bar"><div class="bar-fill" style="--w:85%"></div></div><small>85%</small></div>
+        <div class="bar-item"><label>PyTorch / TF</label><div class="bar"><div class="bar-fill" style="--w:80%"></div></div><small>80%</small></div>
+        <div class="bar-item"><label>React / Next.js</label><div class="bar"><div class="bar-fill" style="--w:82%"></div></div><small>82%</small></div>
+        <div class="bar-item"><label>FastAPI / Node.js</label><div class="bar"><div class="bar-fill" style="--w:78%"></div></div><small>78%</small></div>
+      </div>
+    </div>
+  </template>
+  <template id="tpl-resume">
+    <div class="window-content resume-content">
+      <h2 class="section-title">📄 Resume</h2>
+      <div class="resume-timeline">
+        <div class="timeline-section"><h3>🎓 Education</h3>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <strong>B.Tech — SRM Institute of Science and Technology</strong>
+              <span class="timeline-date">2022 – 2026</span>
+              <p>CS with AI Specialization • CGPA: 9.3 / 10</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-section"><h3>💼 Experience</h3>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <strong>Research Intern — NIT Trichy</strong>
+              <span class="timeline-date">2024</span>
+              <p>Developed AI-based network security systems with grammar inference and deep learning for protocol verification.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-section"><h3>🏆 Achievements</h3>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body"><strong>Dean's List — SRM IST</strong><p>CGPA 9.3/10 maintained throughout.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body"><strong>Open Source Contributor</strong><p>5+ production-grade projects on GitHub.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="resume-download">
+        <a href="../guu__Copy_ (3).pdf" target="_blank" class="download-btn">📥 Download Full Resume (PDF)</a>
+      </div>
+    </div>
+  </template>
+  <template id="tpl-terminal">
+    <div class="window-content terminal-content">
+      <div id="terminal-output" class="t-output"></div>
+      <div class="t-input-row">
+        <span class="t-prompt">adharsh@portfolio:~$&nbsp;</span>
+        <input id="terminal-input" class="t-input" type="text" placeholder="Type a command..." autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="t-hint">Try: <code>help</code> · <code>whoami</code> · <code>skills</code> · <code>projects</code> · <code>contact</code> · <code>clear</code></div>
+    </div>
+  </template>
+  <template id="tpl-contact">
+    <div class="window-content contact-content">
+      <h2 class="section-title">📬 Get In Touch</h2>
+      <p class="contact-desc">Always open to interesting conversations, collaborations, or new opportunities!</p>
+      <div class="contact-cards">
+        <a href="mailto:vsadharsh0@gmail.com" class="contact-card">
+          <div class="cc-icon">📧</div>
+          <div class="cc-body"><strong>Email</strong><span>vsadharsh0@gmail.com</span></div>
+        </a>
+        <a href="https://linkedin.com/in/adharsh-v-s-8a691725b" target="_blank" class="contact-card">
+          <div class="cc-icon">💼</div>
+          <div class="cc-body"><strong>LinkedIn</strong><span>adharsh-v-s-8a691725b</span></div>
+        </a>
+        <a href="https://github.com/adharsh2006" target="_blank" class="contact-card">
+          <div class="cc-icon">🐙</div>
+          <div class="cc-body"><strong>GitHub</strong><span>@adharsh2006</span></div>
+        </a>
+      </div>
+      <form class="contact-form" onsubmit="handleContactForm(event)">
+        <h3>Send a Message</h3>
+        <div class="form-row">
+          <input type="text" id="cf-name" placeholder="Your Name" required />
+          <input type="email" id="cf-email" placeholder="Your Email" required />
+        </div>
+        <textarea id="cf-msg" placeholder="Your message..." rows="4" required></textarea>
+        <button type="submit" class="send-btn">🚀 Send Message</button>
+        <p id="cf-status" class="cf-status"></p>
+      </form>
+    </div>
+  </template>
+  <template id="tpl-github">
+    <div class="window-content github-content">
+      <h2 class="section-title">🐙 GitHub Activity</h2>
+      <div class="gh-profile">
+        <div class="gh-avatar">🧑‍💻</div>
+        <div class="gh-info">
+          <h3>adharsh2006</h3>
+          <p>AI Engineer · Full Stack Developer · Open Source</p>
+          <a href="https://github.com/adharsh2006" target="_blank" class="gh-visit-btn">Visit Profile →</a>
+        </div>
+      </div>
+      <div class="gh-stats">
+        <img src="https://github-readme-stats.vercel.app/api?username=adharsh2006&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" loading="lazy" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=adharsh2006&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" alt="Top Languages" loading="lazy" />
+      </div>
+      <div class="gh-streak">
+        <img src="https://streak-stats.demolab.com?user=adharsh2006&theme=tokyonight&hide_border=true" alt="GitHub Streak" loading="lazy" />
+      </div>
+      <div class="gh-repos">
+        <h3>📦 Repositories</h3>
+        <div class="repo-list">
+          <a href="https://github.com/adharsh2006/PS-GRNN-Digital-Immune-System" target="_blank" class="repo-card">🛡️ PS-GRNN-Digital-Immune-System</a>
+          <a href="https://github.com/adharsh2006/Dyslexia-Reader-AI" target="_blank" class="repo-card">♿ Dyslexia-Reader-AI</a>
+          <a href="https://github.com/adharsh2006/RL-Traffic-Management-System" target="_blank" class="repo-card">🚦 RL-Traffic-Management-System</a>
+          <a href="https://github.com/adharsh2006/xeno" target="_blank" class="repo-card">🤖 Xeno CRM</a>
+          <a href="https://github.com/adharsh2006/Water_demand_forecaster" target="_blank" class="repo-card">💧 Water Demand Forecaster</a>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>
